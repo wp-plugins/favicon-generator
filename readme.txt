@@ -32,6 +32,8 @@ We support JPEG, GIF and PNG. Note: In order for this plugin to properly generat
 
 Some browsers hang on to old favicon images in their cache. This is an unfortunate side effect of caching. If you make a change to your favicon and don't immediately see the change, don't start banging your head against the wall. This is not an indication that this plugin is not working. Try <a href="http://en.wikipedia.org/wiki/Bypass_your_cache" target="_blank">emptying your cache</a> and quitting the browser.
 
+If that doesn't work, it could also be because your theme doesn't make use of WordPress' wp_head() function. If this is the case, sadly you'll have to edit your theme. This function is what allows us to automagically insert the favicon code. Most modern themes comply with this WordPress standard, so this really shouldn't be the problem unless you built your own custom theme or are using a really old theme.
+
 == Screenshots ==
 
 1. Favicon Generator configuration screen
