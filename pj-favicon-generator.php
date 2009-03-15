@@ -5,7 +5,7 @@ Plugin URI: http://www.think-press.com/plugins/favicon-generator
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3441397
 Description: This plugin will allow you to upload an image file of your choosing to be converted to a favicon for your WordPress site.
 Author: Pixel Jar
-Version: 1.0
+Version: 1.1
 Author URI: http://www.think-press.com
 
 
@@ -29,7 +29,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 if (!class_exists('pj_favicon_generator')) {
 	
 	include ('php/Directory.php');
-	include ('php/Ico.php');
+	include ('php/Ico2_1.php');
 	include ('php/Image.php');
 	
     class pj_favicon_generator	{
@@ -79,13 +79,13 @@ if (!class_exists('pj_favicon_generator')) {
 			return $adminOptions;
 		}
 		
-		/**
-		* Saves the admin options to the database.
-		*/
 		function saveAdminOptions(){
 			update_option($this->adminOptionsName, $this->adminOptions);
 		}
 		
+		/**
+		* Creates the admin page.
+		*/
 		function add_admin_pages(){
 			add_menu_page("Favicon Generator", "Favicon Generator", 10, "Favicon-Generator", array(&$this,"output_sub_admin_page_0"));
 		}
@@ -111,7 +111,7 @@ if (!class_exists('pj_favicon_generator')) {
 				$file_temp = $_FILES['favicon']['tmp_name'];
 				$file_err = $_FILES['favicon']['error'];
 				$file_name = explode('.', $userfile);
-				$file_type = $file_name[count($file_name) - 1];
+				$file_type = strtolower($file_name[count($file_name) - 1]);
 				$uploadedfile = $uploaddir.$userfile;
 				
 				if(!empty($userfile)) {
@@ -163,6 +163,8 @@ if (!class_exists('pj_favicon_generator')) {
 						}
 						// ImageICO function provided by JPEXS.com <http://www.jpexs.com/php.html>
 						ImageIco($im, $favicondir.'/favicon.ico');
+						$this->adminOptions['favicon'] = $userfile;
+						$this->saveAdminOptions();
 						$msg .= "Your favicon has been updated.";
 					}
 
@@ -199,6 +201,8 @@ if (!class_exists('pj_favicon_generator')) {
 				
 				// ImageICO function provided by JPEXS.com <http://www.jpexs.com/php.html>
 				ImageIco($im, $favicondir.'/favicon.ico');
+				$this->adminOptions['favicon'] = $_GET['u'];
+				$this->saveAdminOptions();
 				$msg .= "Your favicon has been updated.";
 			}
 			?>
@@ -237,13 +241,14 @@ if (!class_exists('pj_favicon_generator')) {
 		<?php
 			$files = dirList($uploaddir);
 			for ($i = 0; $i < count($files); $i++) :
-				echo '<div style="float: left; margin: 20px 20px 0px 0px; text-align: center;">';
-				echo '	<div class="choice-block" style="position: relative; width: 36px; height: 36px; border: 1px solid #cccccc;">';
+				$active = ($files[$i] == $this->adminOptions['favicon']) ? true : false;
+				echo '<div style="float: left; margin-top: 20px; padding: 10px; text-align: center;'.(($active) ? ' background-color: #dddddd' : '').'">';
+				echo '	<div class="choice-block" style="position: relative; width: 36px; height: 36px; border: 1px solid '.(($active) ? '#ff6666' : '#cccccc').';">';
 				echo '		<img src="'.$uploadurl.$files[$i].'" title="'.$files[$i].'" alt="'.$files[$i].'" class="favicon-choices" style="position: absolute; top: 10px; left: 10px; width: 16px; height: 16px;" />';
 				echo '	</div>';
 				echo '	<div>';
-				echo '		<a href="'.$submiturl.'&d='.$files[$i].'">Delete</a><br />';
-				echo '		<a href="'.$submiturl.'&u='.$files[$i].'">Use</a>';
+				echo ($active) ? 'Active<br />' : '		<a href="'.$submiturl.'&d='.$files[$i].'">Delete</a><br />';
+				echo ($active) ? 'Icon' : '		<a href="'.$submiturl.'&u='.$files[$i].'">Use</a>';
 				echo '	</div>';
 				echo '</div>';
 				

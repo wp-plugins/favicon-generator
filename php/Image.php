@@ -11,11 +11,17 @@ class Image {
   function __construct($imgpath=false) {
     if ($imgpath) $this->openImage($imgpath);
   }
+  // ADDED PHP4 CONSTRUCT FOR BACKWARDS COMPATIBILITY
+  function Image($imgpath=false) {
+    if ($imgpath) $this->openImage($imgpath);
+  }
   function openImage($imgpath) {
-    if (!file_exists($imgpath)) throw new Exception('File doesn\'t exist!');
+	// CHANGED EXCEPTION TO RETURN FALSE
+    if (!file_exists($imgpath)) return false; // throw new Exception('File doesn\'t exist!');
     $imageData=getimagesize($imgpath);
     if (!$imageData) {
-      throw new Exception('Unknown image format!');
+	  //CHANGED EXCEPTION TO RETURN FALSE
+      return false; // throw new Exception('Unknown image format!');
     } else {
       $this->imageType=$imageData[2];
       switch ($this->imageType) {
@@ -35,7 +41,8 @@ class Image {
           $this->imageHandle=imagecreatefrombmp($imgpath);
           $this->imageExtension='bmp';
           break;
-        default: throw new Exception('Unknown image format!');
+        // CHANGED EXCEPTION TO RETURN FALSE
+        default: return false; // throw new Exception('Unknown image format!');
       }
       $this->originalPath=$imgpath;
     }
@@ -106,12 +113,14 @@ class Image {
           }
 
           $dest=imagecreatetruecolor($newwidth,$newheight);
-          if (imagecopyresampled($dest,$this->imageHandle,0,0,0,0,$newwidth,$newheight,$width,$height)==false) throw new Exception('Couldn\'t resize image!');
+          // CHANGED EXCEPTION TO RETURN FALSE
+          if (imagecopyresampled($dest,$this->imageHandle,0,0,0,0,$newwidth,$newheight,$width,$height)==false) return false; // throw new Exception('Couldn\'t resize image!');
       }
       else
       {
           $dest=imagecreatetruecolor($maxwidth,$maxheight);
-          if (imagecopyresampled($dest,$this->imageHandle,0,0,0,0,$maxwidth,$maxheight,$width,$height)==false) throw new Exception('Couldn\'t resize image!') ;
+          // CHANGED EXCEPTION TO RETURN FALSE
+          if (imagecopyresampled($dest,$this->imageHandle,0,0,0,0,$maxwidth,$maxheight,$width,$height)==false) return false; // throw new Exception('Couldn\'t resize image!') ;
       }
       $this->imageHandle=$dest;
   }
