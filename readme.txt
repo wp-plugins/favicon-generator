@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: favicon
 Requires at least: 2.1
 Tested up to: 2.7.1
-Stable tag: 1.1
+Stable tag: 1.2
 
 == Description ==
 
@@ -36,12 +36,16 @@ If that doesn't work, it could also be because your theme doesn't make use of Wo
 
 == Version History ==
 
-= Version 1.2 =
+= Version 1.1 =
 
 1. Added PHP 4 Compatibility
 2. Updated the ImageIco library from <http://www.jpexs.com/php.html>
 3. Cannot delete active favicon
 4. Added highlight to active favicon
+
+= Version 1.2 =
+
+1. Forgot to add the new ImageIco library via SVN. This version has it. Sorry about the mixup.
 
 == Screenshots ==
 
