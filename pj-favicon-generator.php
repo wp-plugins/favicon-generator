@@ -4,8 +4,8 @@ Plugin Name: Favicon Generator
 Plugin URI: http://www.think-press.com/plugins/favicon-generator
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3441397
 Description: This plugin will allow you to upload an image file of your choosing to be converted to a favicon for your WordPress site.
-Author: Pixel Jar
-Version: 1.2
+Author: Brandon Dove, Jeffrey Zinn
+Version: 1.3
 Author URI: http://www.think-press.com
 
 
