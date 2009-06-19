@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: favicon
 Requires at least: 2.1
 Tested up to: 2.7.1
-Stable tag: 1.3
+Stable tag: 1.4
 
 == Description ==
 
@@ -50,6 +50,10 @@ If that doesn't work, it could also be because your theme doesn't make use of Wo
 = Version 1.3 =
 
 1. AAAARGH! Include error was happening because I forgot about case sensitivity in Linux filesystems. Sorry, I'm on a mac.
+
+= Version 1.4 =
+
+1. Supressed errors that appeared if the upload directory wasn't created. Added in creation of the upload directory to the init routines.
 
 == Screenshots ==
 

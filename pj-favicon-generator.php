@@ -5,7 +5,7 @@ Plugin URI: http://www.think-press.com/plugins/favicon-generator
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3441397
 Description: This plugin will allow you to upload an image file of your choosing to be converted to a favicon for your WordPress site.
 Author: Brandon Dove, Jeffrey Zinn
-Version: 1.3
+Version: 1.4
 Author URI: http://www.think-press.com
 
 
@@ -97,6 +97,7 @@ if (!class_exists('pj_favicon_generator')) {
 
 			// PATHS
 			$uploaddir = WP_PLUGIN_DIR.'/favicon-generator/uploads/';
+			if (!is_dir($uploaddir)) { @mkdir($uploaddir, 0777); }
 			$uploadurl = WP_PLUGIN_URL.'/favicon-generator/uploads/';
 			$favicondir = WP_PLUGIN_DIR.'/favicon-generator/';
 			$faviconurl = WP_PLUGIN_URL.'/favicon-generator/';
@@ -267,7 +268,9 @@ if (!class_exists('pj_favicon_generator')) {
 		function wp_head_intercept() {
 			//this is a sample function that includes additional styles within the head of your template.
 			echo '<link rel="shortcut icon" href="'.WP_PLUGIN_URL.'/favicon-generator/favicon.ico" />';
+			echo '<meta name="generator" content="Think-Press Favicon Generator v1.4" />';
 		}
+		
     }
 }
 
