@@ -87,7 +87,7 @@ if (!class_exists('pj_favicon_generator')) {
 		* Creates the admin page.
 		*/
 		function add_admin_pages(){
-			add_menu_page("Favicon Generator", "Favicon Generator", 10, "Favicon-Generator", array(&$this,"output_sub_admin_page_0"));
+			add_menu_page("Favicon Generator", "Favicon Generator", 10, "Favicon-Generator", array(&$this,"output_sub_admin_page_0"), WP_PLUGIN_URL.'/favicon-generator/menu-icon.png');
 		}
 		
 		/**
