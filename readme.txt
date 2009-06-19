@@ -3,7 +3,7 @@ Contributors: brandondove, lordleiter
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3441397
 Tags: favicon
 Requires at least: 2.1
-Tested up to: 2.7.1
+Tested up to: 2.8
 Stable tag: 1.4
 
 == Description ==
