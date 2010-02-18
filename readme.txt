@@ -2,9 +2,9 @@
 Contributors: brandondove, lordleiter
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3441397
 Tags: favicon
-Requires at least: 2.1
-Tested up to: 2.8
-Stable tag: 1.4
+Requires at least: 2.8
+Tested up to: 2.9.2
+Stable tag: 1.5
 
 == Description ==
 
@@ -54,6 +54,15 @@ If that doesn't work, it could also be because your theme doesn't make use of Wo
 = Version 1.4 =
 
 1. Supressed errors that appeared if the upload directory wasn't created. Added in creation of the upload directory to the init routines.
+
+= Version 1.5 =
+
+1. Added support for ads from pluginsponsors.com to be placed on the admin page. A guy's gotta earn a living, right?
+2. Tested functionality against WordPress version 2.9.2
+3. Increased the minimum WordPress version to 2.8 because, come on...who's still running WordPress 2.1?
+4. Added checks to make sure certain necessary directories and permissions were set properly.
+5. Suppressed ugly warnings that were displayed when the upload directories weren't set properly.
+6. Added support for l10n.
 
 == Screenshots ==
 
