@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: brandondove, lordleiter
+Contributors: brandondove, jeffreyzinn
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3441397
 Tags: favicon
 Requires at least: 2.8
