@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Favicon Generator
-Plugin URI: http://www.think-press.com/plugins/favicon-generator
+Plugin URI: http://www.pixeljar.net/plugins/favicon-generator
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3441397
 Description: This plugin will allow you to upload an image file of your choosing to be converted to a favicon for your WordPress site.
 Author: Brandon Dove, Jeffrey Zinn
 Version: 1.5
-Author URI: http://www.think-press.com
+Author URI: http://www.pixeljar.net
 
 
 Copyright 2009  Pixel jar  (email : info@pixeljar.net)
